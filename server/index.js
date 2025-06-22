@@ -20,12 +20,21 @@ app.post("/todos", async(req, res) => {
         // RETURNING * is used when inserting/updating/deleting data - to return back the data
 
         res.json(newTodo.rows[0]);
-    } catch (error) {
+    } catch (err) {
         console.error(err.message);
     }
 })
 
 //get all todos
+app.get("/todos", async(req, res) => {
+    try {
+        const allTodos = await pool.query("SELECT * FROM todo");
+        res.json(allTodos.rows);
+    } catch (err) {
+        console.error(err.message);
+    }
+
+})
 
 //get a todo
 
