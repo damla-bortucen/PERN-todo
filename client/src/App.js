@@ -9,6 +9,7 @@ function App() {
   return <>
     <div className='container'>
       <InputTodo />
+      <ListTodos />
     </div>
   </>;
 }
